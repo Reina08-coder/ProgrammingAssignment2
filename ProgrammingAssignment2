@@ -1,0 +1,14 @@
+makeCacheMatrix <- function (x =matriz()){
+inv <- NULL 
+set <- function (y) {
+x <<- y
+inv <<- NULL
+}
+get <- function () {x}
+setInverse <- function (inverse){inv <<- inverse}
+getInverse <- function () {inv}
+lis(set=set, get=get, setInverse=setinverse, getInverse = getInverse)
+}
+cachesolve <- function (x, ...){
+inv <- x~getInverse ()
+inv <- x$getInverse ()
