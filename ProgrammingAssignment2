@@ -1,3 +1,4 @@
+library(MASS)
 makeCacheMatrix <- function (x =matriz()){
 inv <- NULL 
 set <- function (y) {
@@ -5,10 +6,22 @@ x <<- y
 inv <<- NULL
 }
 get <- function () {x}
-setInverse <- function (inverse){inv <<- inverse}
-getInverse <- function () {inv}
-lis(set=set, get=get, setInverse=setinverse, getInverse = getInverse)
+setinverse <- function (inverse)inv <<- inverse
+getinverse <- function () {
+iver <- ginv(x)
+inver%*%x
+}
+lis(set=set, get=get, setinverse=setinverse, getInverse = getInverse)
 }
 cachesolve <- function (x, ...){
-inv <- x~getInverse ()
-inv <- x$getInverse ()
+inv <- x$getinv ()
+if (!is.null(inv))){
+message(“getting cached data!”)
+return(inv)
+}
+data <- x$get()
+inv <- solve(data, …)
+X$setinv(inv)
+Inv
+}
+
