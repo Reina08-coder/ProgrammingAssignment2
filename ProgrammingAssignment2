@@ -1,26 +1,27 @@
 library(MASS)
-makeCacheMatrix <- function (x =matriz()){
-inv <- NULL 
+makeCacheMatriz <- function (x =matriz()){
+inv <- NULL  #initializing inverse as NULL
 set <- function (y) {
 x <<- y
 inv <<- NULL
 }
-get <- function () {x}
+get <- function () {x}    #fuction to get matriz x
 setinverse <- function (inverse)inv <<- inverse
 getinverse <- function () {
-iver <- ginv(x)
-inver%*%x
+iver <- ginv(x) 
+inver%*%x   #fuction to obtain inverse of the matriz
 }
 lis(set=set, get=get, setinverse=setinverse, getInverse = getInverse)
 }
+# This is used to get the cacha data
 cachesolve <- function (x, ...){
 inv <- x$getinv ()
-if (!is.null(inv))){
+if (!is.null(inv))){   #cheking wheter inverse in NULL
 message(“getting cached data!”)
-return(inv)
+return(inv)   #returnos inverse value
 }
-data <- x$get()
-inv <- solve(data, …)
+data <- x$get() 
+inv <- solve(data, …) #calculates inverse value
 X$setinv(inv)
 inv
 }
